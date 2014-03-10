@@ -6,15 +6,17 @@ MINE_COUNT = 15
 BOARD_SIZE = 9
 SYMBOLS = {hidden: '*', revealed: '_', flagged: 'F'}
 
+
 require 'debugger'
 
 class Tile
 
-  attr_accessor :content, :state, :fringe, :i, :j, :board
+  attr_accessor :content, :state, :bomb_count, :i, :j, :board
   attr_reader   :neighbors
 
   def initialize
     @state = :hidden
+    @bomb_count = 0
   end
 
   def reveal
@@ -47,7 +49,9 @@ class Tile
 
   def neighbor_bomb_count
     #determine if it's fringe and how many
-
+    @neighbors.each do |neighbor|
+      @bomb_count += 1 if neighbor.content == :mine
+    end
 
   end
 
@@ -74,8 +78,6 @@ class Board
       end
     end
 
-    @tiles.map{|row| row.map{|tile| tile.neighbors}}
-
     mine_count = 0
     while mine_count < num_mines
       i,j = rand(BOARD_SIZE), rand(BOARD_SIZE)
@@ -84,6 +86,10 @@ class Board
         mine_count += 1
       end
     end
+
+    @tiles.map{|row| row.map{|tile| tile.neighbors}}
+    @tiles.map{|row| row.map{|tile| tile.neighbor_bomb_count}}
+
   end
 
   def act(action, i, j)
@@ -104,9 +110,16 @@ class Board
     # * = unexplored, _ = explored, empty
     # F = flagged,  1/2/3 = fringe
 
+
     @tiles.each_with_index do |row, i|
       row.each_with_index do |tile, j|
-        print " #{SYMBOLS[tile.state]} "
+         if SYMBOLS.has_key?(tile.state)
+           mark = SYMBOLS[tile.state]
+         else
+           mark = tile.bomb_count
+         end
+        print " #{mark} "
+        # print " #{tile.content==:mine ? 'm' : '*'} "
       end
       puts
     end

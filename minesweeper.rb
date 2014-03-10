@@ -2,8 +2,8 @@
 # Minesweeper game
 # March 10
 # Kevin & Buddy
-MINE_COUNT = 15
-BOARD_SIZE = 9
+MINE_COUNT = 3
+BOARD_SIZE = 10
 SYMBOLS = {hidden: '*', revealed: '_', flagged: 'F'}
 
 
@@ -20,11 +20,28 @@ class Tile
   end
 
   def reveal
-    #call neighbors
-    @state = :revealed
+    # debugger
+    if @content == :mine
+      @board.game_over = true
+      return
+    end
+    queue = []
+    queue << self
+
+    until queue.empty?
+
+      tile = queue.pop
+
+       if tile.bomb_count == 0 && tile.state == :hidden
+         queue += tile.neighbors
+         tile.state = :revealed
+       elsif tile.bomb_count > 0
+         tile.state = :fringe
+       end
+    end
   end
 
-  def neighbors
+  def find_neighbors
     @neighbors = []
 
      [-1, 1, 0].each do |mod1|
@@ -60,7 +77,7 @@ end
 
 class Board
 
-  attr_reader :tiles, :game_over
+  attr_accessor :tiles, :game_over
 
   def initialize(num_mines=MINE_COUNT)
     initial_board(num_mines)
@@ -87,7 +104,7 @@ class Board
       end
     end
 
-    @tiles.map{|row| row.map{|tile| tile.neighbors}}
+    @tiles.map{|row| row.map{|tile| tile.find_neighbors}}
     @tiles.map{|row| row.map{|tile| tile.neighbor_bomb_count}}
 
   end
@@ -119,7 +136,18 @@ class Board
            mark = tile.bomb_count
          end
         print " #{mark} "
-        # print " #{tile.content==:mine ? 'm' : '*'} "
+      end
+      puts
+    end
+
+    @tiles.each_with_index do |row, i|
+      row.each_with_index do |tile, j|
+         if SYMBOLS.has_key?(tile.state)
+           mark = SYMBOLS[tile.state]
+         else
+           mark = tile.bomb_count
+         end
+         print " #{tile.content==:mine ? 'm' : tile.bomb_count} "
       end
       puts
     end
@@ -139,8 +167,25 @@ class Game
     until @board.game_over
       action, i, j = prompt_user
       @board.act(action, i, j)
-
+      @board.game_over = true if check_for_win
     end
+
+    puts "The game is over for you"
+  end
+
+  def check_for_win
+    #if all squares without a mine are revealed or fringed
+    result = true
+    @board.tiles.each do |row|
+      row.each do |tile|
+        # debugger
+        if tile.content != :mine && (tile.state==:hidden || tile.state==:flagged)
+          return false
+        end
+      end
+    end
+    puts "you win!!"
+    result
   end
 
   def prompt_user
@@ -155,3 +200,5 @@ class Game
   end
 
 end
+
+Game.new.run

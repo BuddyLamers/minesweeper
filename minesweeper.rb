@@ -14,9 +14,7 @@ class Tile
   attr_reader   :neighbors
 
   def initialize
-
     @state = :hidden
-
   end
 
   def reveal
@@ -29,7 +27,7 @@ class Tile
 
      [-1, 1, 0].each do |mod1|
        [-1, 1, 0].each do |mod2|
-        next if @i == 0 && @j == 0
+        next if mod1 == 0 && mod2 == 0
         i_coord, j_coord = @i + mod1, @j + mod2
 
         if on_board?(i_coord,j_coord)
@@ -38,6 +36,7 @@ class Tile
 
       end
     end
+    #puts "I am at #{@i}, #{j}, my neighbors are #{@neighbors.map(&:i)}, #{@neighbors.map(&:j)} "
   end
 
   def on_board?(i_coord,j_coord)
@@ -48,6 +47,7 @@ class Tile
 
   def neighbor_bomb_count
     #determine if it's fringe and how many
+
 
   end
 
@@ -68,12 +68,13 @@ class Board
     @tiles = Array.new(BOARD_SIZE) { Array.new (BOARD_SIZE) {Tile.new}}
 
     @tiles.each_with_index do |row,i|
-      @row.each_with_index do |tile,j|
+      row.each_with_index do |tile,j|
         tile.i, tile.j = i, j
         tile.board = self
-        tile.neighbors
       end
     end
+
+    @tiles.map{|row| row.map{|tile| tile.neighbors}}
 
     mine_count = 0
     while mine_count < num_mines

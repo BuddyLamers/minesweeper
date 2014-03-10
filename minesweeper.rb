@@ -2,30 +2,53 @@
 # Minesweeper game
 # March 10
 # Kevin & Buddy
+MINE_COUNT = 15
+BOARD_SIZE = 9
+SYMBOLS = {hidden: '*', revealed: '_', flagged: 'F'}
 
 require 'debugger'
 
 class Tile
 
-  attr_accessor :content, :state, :fringe, :coord, :board
-
+  attr_accessor :content, :state, :fringe, :i, :j, :board
+  attr_reader   :neighbors
 
   def initialize
-    @content = content
+
     @state = :hidden
+
   end
 
   def reveal
-    #call nbc
+    #call neighbors
     @state = :revealed
   end
 
   def neighbors
+    @neighbors = []
 
+     [-1, 1, 0].each do |mod1|
+       [-1, 1, 0].each do |mod2|
+        next if @i == 0 && @j == 0
+        i_coord, j_coord = @i + mod1, @j + mod2
+
+        if on_board?(i_coord,j_coord)
+          @neighbors << @board.tiles[i_coord][j_coord]
+        end
+
+      end
+    end
+  end
+
+  def on_board?(i_coord,j_coord)
+    return true if ( i_coord.between?(0,BOARD_SIZE-1) &&
+                     j_coord.between?(0,BOARD_SIZE-1) )
+    false
   end
 
   def neighbor_bomb_count
     #determine if it's fringe and how many
+
   end
 
 
@@ -33,11 +56,7 @@ end
 
 class Board
 
-  MINE_COUNT = 15
-  BOARD_SIZE = 9
-  SYMBOLS = {hidden: '*', revealed: '_', flagged: 'F'}
-
-  attr_reader :board, :game_over
+  attr_reader :tiles, :game_over
 
   def initialize(num_mines=MINE_COUNT)
     initial_board(num_mines)
@@ -46,20 +65,21 @@ class Board
 
   def initial_board(num_mines)
 
-    @board = Array.new(BOARD_SIZE) { Array.new (BOARD_SIZE) {Tile.new}}
+    @tiles = Array.new(BOARD_SIZE) { Array.new (BOARD_SIZE) {Tile.new}}
 
-    @board.each_with_index do |row,i|
+    @tiles.each_with_index do |row,i|
       @row.each_with_index do |tile,j|
-        tile.coord = [i,j]
+        tile.i, tile.j = i, j
         tile.board = self
+        tile.neighbors
       end
     end
 
     mine_count = 0
     while mine_count < num_mines
       i,j = rand(BOARD_SIZE), rand(BOARD_SIZE)
-      if @board[i][j].content.nil?
-        @board[i][j].content = :mine
+      if @tiles[i][j].content.nil?
+        @tiles[i][j].content = :mine
         mine_count += 1
       end
     end
@@ -67,7 +87,7 @@ class Board
 
   def act(action, i, j)
 
-    tile = @board[i][j]
+    tile = @tiles[i][j]
 
     if action == 'r'
       tile.reveal
@@ -83,7 +103,7 @@ class Board
     # * = unexplored, _ = explored, empty
     # F = flagged,  1/2/3 = fringe
 
-    @board.each_with_index do |row, i|
+    @tiles.each_with_index do |row, i|
       row.each_with_index do |tile, j|
         print " #{SYMBOLS[tile.state]} "
       end
@@ -97,7 +117,7 @@ end
 class Game
 
   def initialize
-    @board = Board.new(15)
+    @board = Board.new(MINE_COUNT)
   end
 
   def run

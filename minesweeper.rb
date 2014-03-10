@@ -5,9 +5,11 @@
 MINE_COUNT = 3
 BOARD_SIZE = 10
 SYMBOLS = {hidden: '*', revealed: '_', flagged: 'F'}
+SAVE_PATH = 'savegame.yaml'
 
 
 require 'debugger'
+require 'yaml'
 
 class Tile
 
@@ -20,7 +22,6 @@ class Tile
   end
 
   def reveal
-    # debugger
     if @content == :mine
       @board.game_over = true
       return
@@ -69,9 +70,7 @@ class Tile
     @neighbors.each do |neighbor|
       @bomb_count += 1 if neighbor.content == :mine
     end
-
   end
-
 
 end
 
@@ -81,11 +80,9 @@ class Board
 
   def initialize(num_mines=MINE_COUNT)
     initial_board(num_mines)
-
   end
 
   def initial_board(num_mines)
-
     @tiles = Array.new(BOARD_SIZE) { Array.new (BOARD_SIZE) {Tile.new}}
 
     @tiles.each_with_index do |row,i|
@@ -127,7 +124,6 @@ class Board
     # * = unexplored, _ = explored, empty
     # F = flagged,  1/2/3 = fringe
 
-
     @tiles.each_with_index do |row, i|
       row.each_with_index do |tile, j|
          if SYMBOLS.has_key?(tile.state)
@@ -157,20 +153,35 @@ class Board
 end
 
 class Game
-
+  # debugger
   def initialize
-    @board = Board.new(MINE_COUNT)
+  file_name = ARGV.shift
+   @board = load_board(file_name) if file_name
+   @board = Board.new(MINE_COUNT) unless file_name
+  end
+
+  def load_board(file_name)
+     yaml_file = File.read(file_name)
+     YAML::load(yaml_file)
   end
 
   def run
-
     until @board.game_over
       action, i, j = prompt_user
-      @board.act(action, i, j)
-      @board.game_over = true if check_for_win
+      if action == 's'
+        save_game
+      else
+        @board.act(action, i, j)
+        @board.game_over = true if check_for_win
+      end
     end
 
     puts "The game is over for you"
+  end
+
+  def save_game
+    File.open(SAVE_PATH, 'w') {|f| f.write(@board.to_yaml)}
+    puts "game is saved"
   end
 
   def check_for_win
@@ -193,6 +204,7 @@ class Game
     puts "Enter your command, r or f, and coordinates"
     puts "Coordinates begin in the upper left and start with 0"
     puts "Example r 1 2"
+    puts "To save, enter s, to load enter l"
     action, i, j = gets.chomp.split(' ')
 
     [action.downcase, i.to_i, j.to_i]

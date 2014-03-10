@@ -1,0 +1,1389 @@
+--- &1 !ruby/object:Board
+tiles:
+- - &2 !ruby/object:Tile
+    state: :revealed
+    bomb_count: 0
+    i: 0
+    j: 0
+    board: *1
+    neighbors:
+    - &3 !ruby/object:Tile
+      state: :revealed
+      bomb_count: 0
+      i: 1
+      j: 1
+      board: *1
+      neighbors:
+      - *2
+      - &4 !ruby/object:Tile
+        state: :revealed
+        bomb_count: 0
+        i: 0
+        j: 2
+        board: *1
+        neighbors:
+        - *3
+        - &5 !ruby/object:Tile
+          state: :revealed
+          bomb_count: 0
+          i: 1
+          j: 3
+          board: *1
+          neighbors:
+          - *4
+          - &6 !ruby/object:Tile
+            state: :revealed
+            bomb_count: 0
+            i: 0
+            j: 4
+            board: *1
+            neighbors:
+            - *5
+            - &7 !ruby/object:Tile
+              state: :fringe
+              bomb_count: 1
+              i: 1
+              j: 5
+              board: *1
+              neighbors:
+              - *6
+              - &8 !ruby/object:Tile
+                state: :hidden
+                bomb_count: 1
+                i: 0
+                j: 6
+                board: *1
+                neighbors:
+                - *7
+                - &9 !ruby/object:Tile
+                  state: :hidden
+                  bomb_count: 1
+                  i: 1
+                  j: 7
+                  board: *1
+                  neighbors:
+                  - *8
+                  - &10 !ruby/object:Tile
+                    state: :hidden
+                    bomb_count: 0
+                    i: 0
+                    j: 8
+                    board: *1
+                    neighbors:
+                    - *9
+                    - &24 !ruby/object:Tile
+                      state: :hidden
+                      bomb_count: 0
+                      i: 1
+                      j: 9
+                      board: *1
+                      neighbors:
+                      - *10
+                      - &101 !ruby/object:Tile
+                        state: :hidden
+                        bomb_count: 0
+                        i: 0
+                        j: 9
+                        board: *1
+                        neighbors:
+                        - &25 !ruby/object:Tile
+                          state: :hidden
+                          bomb_count: 0
+                          i: 1
+                          j: 8
+                          board: *1
+                          neighbors:
+                          - &100 !ruby/object:Tile
+                            state: :hidden
+                            bomb_count: 1
+                            i: 0
+                            j: 7
+                            board: *1
+                            neighbors:
+                            - &21 !ruby/object:Tile
+                              state: :hidden
+                              bomb_count: 0
+                              i: 1
+                              j: 6
+                              board: *1
+                              neighbors:
+                              - &99 !ruby/object:Tile
+                                state: :fringe
+                                bomb_count: 1
+                                i: 0
+                                j: 5
+                                board: *1
+                                neighbors:
+                                - &18 !ruby/object:Tile
+                                  state: :revealed
+                                  bomb_count: 0
+                                  i: 1
+                                  j: 4
+                                  board: *1
+                                  neighbors:
+                                  - &98 !ruby/object:Tile
+                                    state: :revealed
+                                    bomb_count: 0
+                                    i: 0
+                                    j: 3
+                                    board: *1
+                                    neighbors:
+                                    - &13 !ruby/object:Tile
+                                      state: :revealed
+                                      bomb_count: 0
+                                      i: 1
+                                      j: 2
+                                      board: *1
+                                      neighbors:
+                                      - &11 !ruby/object:Tile
+                                        state: :revealed
+                                        bomb_count: 0
+                                        i: 0
+                                        j: 1
+                                        board: *1
+                                        neighbors:
+                                        - &12 !ruby/object:Tile
+                                          state: :revealed
+                                          bomb_count: 0
+                                          i: 1
+                                          j: 0
+                                          board: *1
+                                          neighbors:
+                                          - *11
+                                          - *2
+                                          - &14 !ruby/object:Tile
+                                            state: :fringe
+                                            bomb_count: 1
+                                            i: 2
+                                            j: 1
+                                            board: *1
+                                            neighbors:
+                                            - *12
+                                            - *13
+                                            - *3
+                                            - &29 !ruby/object:Tile
+                                              state: :hidden
+                                              bomb_count: 0
+                                              i: 3
+                                              j: 0
+                                              board: *1
+                                              neighbors:
+                                              - *14
+                                              - &15 !ruby/object:Tile
+                                                state: :fringe
+                                                bomb_count: 1
+                                                i: 2
+                                                j: 0
+                                                board: *1
+                                                neighbors:
+                                                - *3
+                                                - *12
+                                                - &16 !ruby/object:Tile
+                                                  state: :fringe
+                                                  bomb_count: 1
+                                                  i: 3
+                                                  j: 1
+                                                  board: *1
+                                                  neighbors:
+                                                  - *15
+                                                  - &17 !ruby/object:Tile
+                                                    state: :revealed
+                                                    bomb_count: 0
+                                                    i: 2
+                                                    j: 2
+                                                    board: *1
+                                                    neighbors:
+                                                    - *3
+                                                    - *5
+                                                    - *13
+                                                    - *16
+                                                    - &19 !ruby/object:Tile
+                                                      state: :revealed
+                                                      bomb_count: 0
+                                                      i: 3
+                                                      j: 3
+                                                      board: *1
+                                                      neighbors:
+                                                      - *17
+                                                      - &20 !ruby/object:Tile
+                                                        state: :revealed
+                                                        bomb_count: 0
+                                                        i: 2
+                                                        j: 4
+                                                        board: *1
+                                                        neighbors:
+                                                        - *5
+                                                        - *7
+                                                        - *18
+                                                        - *19
+                                                        - &22 !ruby/object:Tile
+                                                          state: :revealed
+                                                          bomb_count: 0
+                                                          i: 3
+                                                          j: 5
+                                                          board: *1
+                                                          neighbors:
+                                                          - *20
+                                                          - &23 !ruby/object:Tile
+                                                            state: :fringe
+                                                            bomb_count: 1
+                                                            i: 2
+                                                            j: 6
+                                                            board: *1
+                                                            neighbors:
+                                                            - *7
+                                                            - *9
+                                                            - *21
+                                                            - *22
+                                                            - &26 !ruby/object:Tile
+                                                              state: :fringe
+                                                              bomb_count: 1
+                                                              i: 3
+                                                              j: 7
+                                                              board: *1
+                                                              neighbors:
+                                                              - *23
+                                                              - &27 !ruby/object:Tile
+                                                                state: :hidden
+                                                                bomb_count: 1
+                                                                i: 2
+                                                                j: 8
+                                                                board: *1
+                                                                neighbors:
+                                                                - *9
+                                                                - *24
+                                                                - *25
+                                                                - *26
+                                                                - &41 !ruby/object:Tile
+                                                                  state: :hidden
+                                                                  bomb_count: 1
+                                                                  i: 3
+                                                                  j: 9
+                                                                  board: *1
+                                                                  neighbors:
+                                                                  - *27
+                                                                  - &97 !ruby/object:Tile
+                                                                    state: :hidden
+                                                                    bomb_count: 1
+                                                                    i: 2
+                                                                    j: 9
+                                                                    board: *1
+                                                                    neighbors:
+                                                                    - *25
+                                                                    - *24
+                                                                    - &42 !ruby/object:Tile
+                                                                      state: :hidden
+                                                                      bomb_count: 0
+                                                                      i: 3
+                                                                      j: 8
+                                                                      board: *1
+                                                                      neighbors:
+                                                                      - &96 !ruby/object:Tile
+                                                                        state: :fringe
+                                                                        bomb_count: 2
+                                                                        i: 2
+                                                                        j: 7
+                                                                        board: *1
+                                                                        neighbors:
+                                                                        - *21
+                                                                        - *25
+                                                                        - *9
+                                                                        - &38 !ruby/object:Tile
+                                                                          state: :revealed
+                                                                          bomb_count: 0
+                                                                          i: 3
+                                                                          j: 6
+                                                                          board: *1
+                                                                          neighbors:
+                                                                          - &95 !ruby/object:Tile
+                                                                            state: :fringe
+                                                                            bomb_count: 1
+                                                                            i: 2
+                                                                            j: 5
+                                                                            board: *1
+                                                                            neighbors:
+                                                                            - *18
+                                                                            - *21
+                                                                            - *7
+                                                                            - &35 !ruby/object:Tile
+                                                                              state: :revealed
+                                                                              bomb_count: 0
+                                                                              i: 3
+                                                                              j: 4
+                                                                              board: *1
+                                                                              neighbors:
+                                                                              - &28 !ruby/object:Tile
+                                                                                state: :revealed
+                                                                                bomb_count: 0
+                                                                                i: 2
+                                                                                j: 3
+                                                                                board: *1
+                                                                                neighbors:
+                                                                                - *13
+                                                                                - *18
+                                                                                - *5
+                                                                                - &30 !ruby/object:Tile
+                                                                                  state: :revealed
+                                                                                  bomb_count: 0
+                                                                                  i: 3
+                                                                                  j: 2
+                                                                                  board: *1
+                                                                                  neighbors:
+                                                                                  - *14
+                                                                                  - *28
+                                                                                  - *17
+                                                                                  - &31 !ruby/object:Tile
+                                                                                    state: :fringe
+                                                                                    bomb_count: 1
+                                                                                    i: 4
+                                                                                    j: 1
+                                                                                    board: *1
+                                                                                    neighbors:
+                                                                                    - *29
+                                                                                    - *30
+                                                                                    - *16
+                                                                                    - &46 !ruby/object:Tile
+                                                                                      state: :revealed
+                                                                                      bomb_count: 0
+                                                                                      i: 5
+                                                                                      j: 0
+                                                                                      board: *1
+                                                                                      neighbors:
+                                                                                      - *31
+                                                                                      - &32 !ruby/object:Tile
+                                                                                        state: :fringe
+                                                                                        bomb_count: 1
+                                                                                        i: 4
+                                                                                        j: 0
+                                                                                        board: *1
+                                                                                        neighbors:
+                                                                                        - *16
+                                                                                        - *29
+                                                                                        - &33 !ruby/object:Tile
+                                                                                          state: :revealed
+                                                                                          bomb_count: 0
+                                                                                          i: 5
+                                                                                          j: 1
+                                                                                          board: *1
+                                                                                          neighbors:
+                                                                                          - *32
+                                                                                          - &34 !ruby/object:Tile
+                                                                                            state: :revealed
+                                                                                            bomb_count: 0
+                                                                                            i: 4
+                                                                                            j: 2
+                                                                                            board: *1
+                                                                                            neighbors:
+                                                                                            - *16
+                                                                                            - *19
+                                                                                            - *30
+                                                                                            - *33
+                                                                                            - &36 !ruby/object:Tile
+                                                                                              state: :revealed
+                                                                                              bomb_count: 0
+                                                                                              i: 5
+                                                                                              j: 3
+                                                                                              board: *1
+                                                                                              neighbors:
+                                                                                              - *34
+                                                                                              - &37 !ruby/object:Tile
+                                                                                                state: :revealed
+                                                                                                bomb_count: 0
+                                                                                                i: 4
+                                                                                                j: 4
+                                                                                                board: *1
+                                                                                                neighbors:
+                                                                                                - *19
+                                                                                                - *22
+                                                                                                - *35
+                                                                                                - *36
+                                                                                                - &39 !ruby/object:Tile
+                                                                                                  state: :revealed
+                                                                                                  bomb_count: 0
+                                                                                                  i: 5
+                                                                                                  j: 5
+                                                                                                  board: *1
+                                                                                                  neighbors:
+                                                                                                  - *37
+                                                                                                  - &40 !ruby/object:Tile
+                                                                                                    state: :revealed
+                                                                                                    bomb_count: 0
+                                                                                                    i: 4
+                                                                                                    j: 6
+                                                                                                    board: *1
+                                                                                                    neighbors:
+                                                                                                    - *22
+                                                                                                    - *26
+                                                                                                    - *38
+                                                                                                    - *39
+                                                                                                    - &43 !ruby/object:Tile
+                                                                                                      state: :revealed
+                                                                                                      bomb_count: 0
+                                                                                                      i: 5
+                                                                                                      j: 7
+                                                                                                      board: *1
+                                                                                                      neighbors:
+                                                                                                      - *40
+                                                                                                      - &44 !ruby/object:Tile
+                                                                                                        state: :fringe
+                                                                                                        bomb_count: 1
+                                                                                                        i: 4
+                                                                                                        j: 8
+                                                                                                        board: *1
+                                                                                                        neighbors:
+                                                                                                        - *26
+                                                                                                        - *41
+                                                                                                        - *42
+                                                                                                        - *43
+                                                                                                        - &58 !ruby/object:Tile
+                                                                                                          state: :revealed
+                                                                                                          bomb_count: 0
+                                                                                                          i: 5
+                                                                                                          j: 9
+                                                                                                          board: *1
+                                                                                                          neighbors:
+                                                                                                          - *44
+                                                                                                          - &94 !ruby/object:Tile
+                                                                                                            state: :fringe
+                                                                                                            bomb_count: 1
+                                                                                                            i: 4
+                                                                                                            j: 9
+                                                                                                            board: *1
+                                                                                                            neighbors:
+                                                                                                            - *42
+                                                                                                            - *41
+                                                                                                            - &59 !ruby/object:Tile
+                                                                                                              state: :revealed
+                                                                                                              bomb_count: 0
+                                                                                                              i: 5
+                                                                                                              j: 8
+                                                                                                              board: *1
+                                                                                                              neighbors:
+                                                                                                              - &93 !ruby/object:Tile
+                                                                                                                state: :fringe
+                                                                                                                bomb_count: 1
+                                                                                                                i: 4
+                                                                                                                j: 7
+                                                                                                                board: *1
+                                                                                                                neighbors:
+                                                                                                                - *38
+                                                                                                                - *42
+                                                                                                                - *26
+                                                                                                                - &55 !ruby/object:Tile
+                                                                                                                  state: :revealed
+                                                                                                                  bomb_count: 0
+                                                                                                                  i: 5
+                                                                                                                  j: 6
+                                                                                                                  board: *1
+                                                                                                                  neighbors:
+                                                                                                                  - &92 !ruby/object:Tile
+                                                                                                                    state: :revealed
+                                                                                                                    bomb_count: 0
+                                                                                                                    i: 4
+                                                                                                                    j: 5
+                                                                                                                    board: *1
+                                                                                                                    neighbors:
+                                                                                                                    - *35
+                                                                                                                    - *38
+                                                                                                                    - *22
+                                                                                                                    - &52 !ruby/object:Tile
+                                                                                                                      state: :revealed
+                                                                                                                      bomb_count: 0
+                                                                                                                      i: 5
+                                                                                                                      j: 4
+                                                                                                                      board: *1
+                                                                                                                      neighbors:
+                                                                                                                      - &45 !ruby/object:Tile
+                                                                                                                        state: :revealed
+                                                                                                                        bomb_count: 0
+                                                                                                                        i: 4
+                                                                                                                        j: 3
+                                                                                                                        board: *1
+                                                                                                                        neighbors:
+                                                                                                                        - *30
+                                                                                                                        - *35
+                                                                                                                        - *19
+                                                                                                                        - &47 !ruby/object:Tile
+                                                                                                                          state: :revealed
+                                                                                                                          bomb_count: 0
+                                                                                                                          i: 5
+                                                                                                                          j: 2
+                                                                                                                          board: *1
+                                                                                                                          neighbors:
+                                                                                                                          - *31
+                                                                                                                          - *45
+                                                                                                                          - *34
+                                                                                                                          - &48 !ruby/object:Tile
+                                                                                                                            state: :revealed
+                                                                                                                            bomb_count: 0
+                                                                                                                            i: 6
+                                                                                                                            j: 1
+                                                                                                                            board: *1
+                                                                                                                            neighbors:
+                                                                                                                            - *46
+                                                                                                                            - *47
+                                                                                                                            - *33
+                                                                                                                            - &63 !ruby/object:Tile
+                                                                                                                              state: :revealed
+                                                                                                                              bomb_count: 0
+                                                                                                                              i: 7
+                                                                                                                              j: 0
+                                                                                                                              board: *1
+                                                                                                                              neighbors:
+                                                                                                                              - *48
+                                                                                                                              - &49 !ruby/object:Tile
+                                                                                                                                state: :revealed
+                                                                                                                                bomb_count: 0
+                                                                                                                                i: 6
+                                                                                                                                j: 0
+                                                                                                                                board: *1
+                                                                                                                                neighbors:
+                                                                                                                                - *33
+                                                                                                                                - *46
+                                                                                                                                - &50 !ruby/object:Tile
+                                                                                                                                  state: :revealed
+                                                                                                                                  bomb_count: 0
+                                                                                                                                  i: 7
+                                                                                                                                  j: 1
+                                                                                                                                  board: *1
+                                                                                                                                  neighbors:
+                                                                                                                                  - *49
+                                                                                                                                  - &51 !ruby/object:Tile
+                                                                                                                                    state: :revealed
+                                                                                                                                    bomb_count: 0
+                                                                                                                                    i: 6
+                                                                                                                                    j: 2
+                                                                                                                                    board: *1
+                                                                                                                                    neighbors:
+                                                                                                                                    - *33
+                                                                                                                                    - *36
+                                                                                                                                    - *47
+                                                                                                                                    - *50
+                                                                                                                                    - &53 !ruby/object:Tile
+                                                                                                                                      state: :revealed
+                                                                                                                                      bomb_count: 0
+                                                                                                                                      i: 7
+                                                                                                                                      j: 3
+                                                                                                                                      board: *1
+                                                                                                                                      neighbors:
+                                                                                                                                      - *51
+                                                                                                                                      - &54 !ruby/object:Tile
+                                                                                                                                        state: :revealed
+                                                                                                                                        bomb_count: 0
+                                                                                                                                        i: 6
+                                                                                                                                        j: 4
+                                                                                                                                        board: *1
+                                                                                                                                        neighbors:
+                                                                                                                                        - *36
+                                                                                                                                        - *39
+                                                                                                                                        - *52
+                                                                                                                                        - *53
+                                                                                                                                        - &56 !ruby/object:Tile
+                                                                                                                                          state: :revealed
+                                                                                                                                          bomb_count: 0
+                                                                                                                                          i: 7
+                                                                                                                                          j: 5
+                                                                                                                                          board: *1
+                                                                                                                                          neighbors:
+                                                                                                                                          - *54
+                                                                                                                                          - &57 !ruby/object:Tile
+                                                                                                                                            state: :revealed
+                                                                                                                                            bomb_count: 0
+                                                                                                                                            i: 6
+                                                                                                                                            j: 6
+                                                                                                                                            board: *1
+                                                                                                                                            neighbors:
+                                                                                                                                            - *39
+                                                                                                                                            - *43
+                                                                                                                                            - *55
+                                                                                                                                            - *56
+                                                                                                                                            - &60 !ruby/object:Tile
+                                                                                                                                              state: :revealed
+                                                                                                                                              bomb_count: 0
+                                                                                                                                              i: 7
+                                                                                                                                              j: 7
+                                                                                                                                              board: *1
+                                                                                                                                              neighbors:
+                                                                                                                                              - *57
+                                                                                                                                              - &61 !ruby/object:Tile
+                                                                                                                                                state: :revealed
+                                                                                                                                                bomb_count: 0
+                                                                                                                                                i: 6
+                                                                                                                                                j: 8
+                                                                                                                                                board: *1
+                                                                                                                                                neighbors:
+                                                                                                                                                - *43
+                                                                                                                                                - *58
+                                                                                                                                                - *59
+                                                                                                                                                - *60
+                                                                                                                                                - &75 !ruby/object:Tile
+                                                                                                                                                  state: :revealed
+                                                                                                                                                  bomb_count: 0
+                                                                                                                                                  i: 7
+                                                                                                                                                  j: 9
+                                                                                                                                                  board: *1
+                                                                                                                                                  neighbors:
+                                                                                                                                                  - *61
+                                                                                                                                                  - &91 !ruby/object:Tile
+                                                                                                                                                    state: :revealed
+                                                                                                                                                    bomb_count: 0
+                                                                                                                                                    i: 6
+                                                                                                                                                    j: 9
+                                                                                                                                                    board: *1
+                                                                                                                                                    neighbors:
+                                                                                                                                                    - *59
+                                                                                                                                                    - *58
+                                                                                                                                                    - &76 !ruby/object:Tile
+                                                                                                                                                      state: :revealed
+                                                                                                                                                      bomb_count: 0
+                                                                                                                                                      i: 7
+                                                                                                                                                      j: 8
+                                                                                                                                                      board: *1
+                                                                                                                                                      neighbors:
+                                                                                                                                                      - &90 !ruby/object:Tile
+                                                                                                                                                        state: :revealed
+                                                                                                                                                        bomb_count: 0
+                                                                                                                                                        i: 6
+                                                                                                                                                        j: 7
+                                                                                                                                                        board: *1
+                                                                                                                                                        neighbors:
+                                                                                                                                                        - *55
+                                                                                                                                                        - *59
+                                                                                                                                                        - *43
+                                                                                                                                                        - &72 !ruby/object:Tile
+                                                                                                                                                          state: :revealed
+                                                                                                                                                          bomb_count: 0
+                                                                                                                                                          i: 7
+                                                                                                                                                          j: 6
+                                                                                                                                                          board: *1
+                                                                                                                                                          neighbors:
+                                                                                                                                                          - &89 !ruby/object:Tile
+                                                                                                                                                            state: :revealed
+                                                                                                                                                            bomb_count: 0
+                                                                                                                                                            i: 6
+                                                                                                                                                            j: 5
+                                                                                                                                                            board: *1
+                                                                                                                                                            neighbors:
+                                                                                                                                                            - *52
+                                                                                                                                                            - *55
+                                                                                                                                                            - *39
+                                                                                                                                                            - &69 !ruby/object:Tile
+                                                                                                                                                              state: :revealed
+                                                                                                                                                              bomb_count: 0
+                                                                                                                                                              i: 7
+                                                                                                                                                              j: 4
+                                                                                                                                                              board: *1
+                                                                                                                                                              neighbors:
+                                                                                                                                                              - &62 !ruby/object:Tile
+                                                                                                                                                                state: :revealed
+                                                                                                                                                                bomb_count: 0
+                                                                                                                                                                i: 6
+                                                                                                                                                                j: 3
+                                                                                                                                                                board: *1
+                                                                                                                                                                neighbors:
+                                                                                                                                                                - *47
+                                                                                                                                                                - *52
+                                                                                                                                                                - *36
+                                                                                                                                                                - &64 !ruby/object:Tile
+                                                                                                                                                                  state: :revealed
+                                                                                                                                                                  bomb_count: 0
+                                                                                                                                                                  i: 7
+                                                                                                                                                                  j: 2
+                                                                                                                                                                  board: *1
+                                                                                                                                                                  neighbors:
+                                                                                                                                                                  - *48
+                                                                                                                                                                  - *62
+                                                                                                                                                                  - *51
+                                                                                                                                                                  - &65 !ruby/object:Tile
+                                                                                                                                                                    state: :revealed
+                                                                                                                                                                    bomb_count: 0
+                                                                                                                                                                    i: 8
+                                                                                                                                                                    j: 1
+                                                                                                                                                                    board: *1
+                                                                                                                                                                    neighbors:
+                                                                                                                                                                    - *63
+                                                                                                                                                                    - *64
+                                                                                                                                                                    - *50
+                                                                                                                                                                    - &88 !ruby/object:Tile
+                                                                                                                                                                      state: :revealed
+                                                                                                                                                                      bomb_count: 0
+                                                                                                                                                                      i: 9
+                                                                                                                                                                      j: 0
+                                                                                                                                                                      board: *1
+                                                                                                                                                                      neighbors:
+                                                                                                                                                                      - *65
+                                                                                                                                                                      - &66 !ruby/object:Tile
+                                                                                                                                                                        state: :revealed
+                                                                                                                                                                        bomb_count: 0
+                                                                                                                                                                        i: 8
+                                                                                                                                                                        j: 0
+                                                                                                                                                                        board: *1
+                                                                                                                                                                        neighbors:
+                                                                                                                                                                        - *50
+                                                                                                                                                                        - *63
+                                                                                                                                                                        - &67 !ruby/object:Tile
+                                                                                                                                                                          state: :revealed
+                                                                                                                                                                          bomb_count: 0
+                                                                                                                                                                          i: 9
+                                                                                                                                                                          j: 1
+                                                                                                                                                                          board: *1
+                                                                                                                                                                          neighbors:
+                                                                                                                                                                          - *66
+                                                                                                                                                                          - &68 !ruby/object:Tile
+                                                                                                                                                                            state: :revealed
+                                                                                                                                                                            bomb_count: 0
+                                                                                                                                                                            i: 8
+                                                                                                                                                                            j: 2
+                                                                                                                                                                            board: *1
+                                                                                                                                                                            neighbors:
+                                                                                                                                                                            - *50
+                                                                                                                                                                            - *53
+                                                                                                                                                                            - *64
+                                                                                                                                                                            - *67
+                                                                                                                                                                            - &70 !ruby/object:Tile
+                                                                                                                                                                              state: :revealed
+                                                                                                                                                                              bomb_count: 0
+                                                                                                                                                                              i: 9
+                                                                                                                                                                              j: 3
+                                                                                                                                                                              board: *1
+                                                                                                                                                                              neighbors:
+                                                                                                                                                                              - *68
+                                                                                                                                                                              - &71 !ruby/object:Tile
+                                                                                                                                                                                state: :revealed
+                                                                                                                                                                                bomb_count: 0
+                                                                                                                                                                                i: 8
+                                                                                                                                                                                j: 4
+                                                                                                                                                                                board: *1
+                                                                                                                                                                                neighbors:
+                                                                                                                                                                                - *53
+                                                                                                                                                                                - *56
+                                                                                                                                                                                - *69
+                                                                                                                                                                                - *70
+                                                                                                                                                                                - &73 !ruby/object:Tile
+                                                                                                                                                                                  state: :revealed
+                                                                                                                                                                                  bomb_count: 0
+                                                                                                                                                                                  i: 9
+                                                                                                                                                                                  j: 5
+                                                                                                                                                                                  board: *1
+                                                                                                                                                                                  neighbors:
+                                                                                                                                                                                  - *71
+                                                                                                                                                                                  - &74 !ruby/object:Tile
+                                                                                                                                                                                    state: :revealed
+                                                                                                                                                                                    bomb_count: 0
+                                                                                                                                                                                    i: 8
+                                                                                                                                                                                    j: 6
+                                                                                                                                                                                    board: *1
+                                                                                                                                                                                    neighbors:
+                                                                                                                                                                                    - *56
+                                                                                                                                                                                    - *60
+                                                                                                                                                                                    - *72
+                                                                                                                                                                                    - *73
+                                                                                                                                                                                    - &77 !ruby/object:Tile
+                                                                                                                                                                                      state: :revealed
+                                                                                                                                                                                      bomb_count: 0
+                                                                                                                                                                                      i: 9
+                                                                                                                                                                                      j: 7
+                                                                                                                                                                                      board: *1
+                                                                                                                                                                                      neighbors:
+                                                                                                                                                                                      - *74
+                                                                                                                                                                                      - &78 !ruby/object:Tile
+                                                                                                                                                                                        state: :revealed
+                                                                                                                                                                                        bomb_count: 0
+                                                                                                                                                                                        i: 8
+                                                                                                                                                                                        j: 8
+                                                                                                                                                                                        board: *1
+                                                                                                                                                                                        neighbors:
+                                                                                                                                                                                        - *60
+                                                                                                                                                                                        - *75
+                                                                                                                                                                                        - *76
+                                                                                                                                                                                        - *77
+                                                                                                                                                                                        - &86 !ruby/object:Tile
+                                                                                                                                                                                          state: :revealed
+                                                                                                                                                                                          bomb_count: 0
+                                                                                                                                                                                          i: 9
+                                                                                                                                                                                          j: 9
+                                                                                                                                                                                          board: *1
+                                                                                                                                                                                          neighbors:
+                                                                                                                                                                                          - *78
+                                                                                                                                                                                          - &85 !ruby/object:Tile
+                                                                                                                                                                                            state: :revealed
+                                                                                                                                                                                            bomb_count: 0
+                                                                                                                                                                                            i: 8
+                                                                                                                                                                                            j: 9
+                                                                                                                                                                                            board: *1
+                                                                                                                                                                                            neighbors:
+                                                                                                                                                                                            - *76
+                                                                                                                                                                                            - *75
+                                                                                                                                                                                            - &84 !ruby/object:Tile
+                                                                                                                                                                                              state: :revealed
+                                                                                                                                                                                              bomb_count: 0
+                                                                                                                                                                                              i: 9
+                                                                                                                                                                                              j: 8
+                                                                                                                                                                                              board: *1
+                                                                                                                                                                                              neighbors:
+                                                                                                                                                                                              - &83 !ruby/object:Tile
+                                                                                                                                                                                                state: :revealed
+                                                                                                                                                                                                bomb_count: 0
+                                                                                                                                                                                                i: 8
+                                                                                                                                                                                                j: 7
+                                                                                                                                                                                                board: *1
+                                                                                                                                                                                                neighbors:
+                                                                                                                                                                                                - *72
+                                                                                                                                                                                                - *76
+                                                                                                                                                                                                - *60
+                                                                                                                                                                                                - &82 !ruby/object:Tile
+                                                                                                                                                                                                  state: :revealed
+                                                                                                                                                                                                  bomb_count: 0
+                                                                                                                                                                                                  i: 9
+                                                                                                                                                                                                  j: 6
+                                                                                                                                                                                                  board: *1
+                                                                                                                                                                                                  neighbors:
+                                                                                                                                                                                                  - &81 !ruby/object:Tile
+                                                                                                                                                                                                    state: :revealed
+                                                                                                                                                                                                    bomb_count: 0
+                                                                                                                                                                                                    i: 8
+                                                                                                                                                                                                    j: 5
+                                                                                                                                                                                                    board: *1
+                                                                                                                                                                                                    neighbors:
+                                                                                                                                                                                                    - *69
+                                                                                                                                                                                                    - *72
+                                                                                                                                                                                                    - *56
+                                                                                                                                                                                                    - &80 !ruby/object:Tile
+                                                                                                                                                                                                      state: :revealed
+                                                                                                                                                                                                      bomb_count: 0
+                                                                                                                                                                                                      i: 9
+                                                                                                                                                                                                      j: 4
+                                                                                                                                                                                                      board: *1
+                                                                                                                                                                                                      neighbors:
+                                                                                                                                                                                                      - &79 !ruby/object:Tile
+                                                                                                                                                                                                        state: :revealed
+                                                                                                                                                                                                        bomb_count: 0
+                                                                                                                                                                                                        i: 8
+                                                                                                                                                                                                        j: 3
+                                                                                                                                                                                                        board: *1
+                                                                                                                                                                                                        neighbors:
+                                                                                                                                                                                                        - *64
+                                                                                                                                                                                                        - *69
+                                                                                                                                                                                                        - *53
+                                                                                                                                                                                                        - &87 !ruby/object:Tile
+                                                                                                                                                                                                          state: :revealed
+                                                                                                                                                                                                          bomb_count: 0
+                                                                                                                                                                                                          i: 9
+                                                                                                                                                                                                          j: 2
+                                                                                                                                                                                                          board: *1
+                                                                                                                                                                                                          neighbors:
+                                                                                                                                                                                                          - *65
+                                                                                                                                                                                                          - *79
+                                                                                                                                                                                                          - *68
+                                                                                                                                                                                                          - *67
+                                                                                                                                                                                                          - *70
+                                                                                                                                                                                                        - *80
+                                                                                                                                                                                                        - *70
+                                                                                                                                                                                                        - *68
+                                                                                                                                                                                                        - *71
+                                                                                                                                                                                                      - *81
+                                                                                                                                                                                                      - *71
+                                                                                                                                                                                                      - *70
+                                                                                                                                                                                                      - *73
+                                                                                                                                                                                                    - *82
+                                                                                                                                                                                                    - *73
+                                                                                                                                                                                                    - *71
+                                                                                                                                                                                                    - *74
+                                                                                                                                                                                                  - *83
+                                                                                                                                                                                                  - *74
+                                                                                                                                                                                                  - *73
+                                                                                                                                                                                                  - *77
+                                                                                                                                                                                                - *84
+                                                                                                                                                                                                - *77
+                                                                                                                                                                                                - *74
+                                                                                                                                                                                                - *78
+                                                                                                                                                                                              - *85
+                                                                                                                                                                                              - *78
+                                                                                                                                                                                              - *77
+                                                                                                                                                                                              - *86
+                                                                                                                                                                                            - *86
+                                                                                                                                                                                            - *78
+                                                                                                                                                                                          - *84
+                                                                                                                                                                                        - *84
+                                                                                                                                                                                        - *83
+                                                                                                                                                                                        - *85
+                                                                                                                                                                                      - *83
+                                                                                                                                                                                      - *82
+                                                                                                                                                                                      - *84
+                                                                                                                                                                                    - *82
+                                                                                                                                                                                    - *81
+                                                                                                                                                                                    - *83
+                                                                                                                                                                                  - *81
+                                                                                                                                                                                  - *80
+                                                                                                                                                                                  - *82
+                                                                                                                                                                                - *80
+                                                                                                                                                                                - *79
+                                                                                                                                                                                - *81
+                                                                                                                                                                              - *79
+                                                                                                                                                                              - *87
+                                                                                                                                                                              - *80
+                                                                                                                                                                            - *87
+                                                                                                                                                                            - *65
+                                                                                                                                                                            - *79
+                                                                                                                                                                          - *65
+                                                                                                                                                                          - *88
+                                                                                                                                                                          - *87
+                                                                                                                                                                        - *88
+                                                                                                                                                                        - *65
+                                                                                                                                                                      - *67
+                                                                                                                                                                    - *87
+                                                                                                                                                                    - *67
+                                                                                                                                                                    - *66
+                                                                                                                                                                    - *68
+                                                                                                                                                                  - *79
+                                                                                                                                                                  - *68
+                                                                                                                                                                  - *50
+                                                                                                                                                                  - *53
+                                                                                                                                                                - *69
+                                                                                                                                                                - *53
+                                                                                                                                                                - *51
+                                                                                                                                                                - *54
+                                                                                                                                                              - *89
+                                                                                                                                                              - *54
+                                                                                                                                                              - *79
+                                                                                                                                                              - *81
+                                                                                                                                                              - *71
+                                                                                                                                                              - *53
+                                                                                                                                                              - *56
+                                                                                                                                                            - *72
+                                                                                                                                                            - *56
+                                                                                                                                                            - *54
+                                                                                                                                                            - *57
+                                                                                                                                                          - *90
+                                                                                                                                                          - *57
+                                                                                                                                                          - *81
+                                                                                                                                                          - *83
+                                                                                                                                                          - *74
+                                                                                                                                                          - *56
+                                                                                                                                                          - *60
+                                                                                                                                                        - *76
+                                                                                                                                                        - *60
+                                                                                                                                                        - *57
+                                                                                                                                                        - *61
+                                                                                                                                                      - *91
+                                                                                                                                                      - *61
+                                                                                                                                                      - *83
+                                                                                                                                                      - *85
+                                                                                                                                                      - *78
+                                                                                                                                                      - *60
+                                                                                                                                                      - *75
+                                                                                                                                                    - *75
+                                                                                                                                                    - *61
+                                                                                                                                                  - *78
+                                                                                                                                                  - *85
+                                                                                                                                                  - *76
+                                                                                                                                                - *76
+                                                                                                                                                - *90
+                                                                                                                                                - *91
+                                                                                                                                              - *90
+                                                                                                                                              - *74
+                                                                                                                                              - *78
+                                                                                                                                              - *83
+                                                                                                                                              - *72
+                                                                                                                                              - *76
+                                                                                                                                            - *72
+                                                                                                                                            - *89
+                                                                                                                                            - *90
+                                                                                                                                          - *89
+                                                                                                                                          - *71
+                                                                                                                                          - *74
+                                                                                                                                          - *81
+                                                                                                                                          - *69
+                                                                                                                                          - *72
+                                                                                                                                        - *69
+                                                                                                                                        - *62
+                                                                                                                                        - *89
+                                                                                                                                      - *62
+                                                                                                                                      - *68
+                                                                                                                                      - *71
+                                                                                                                                      - *79
+                                                                                                                                      - *64
+                                                                                                                                      - *69
+                                                                                                                                    - *64
+                                                                                                                                    - *48
+                                                                                                                                    - *62
+                                                                                                                                  - *48
+                                                                                                                                  - *66
+                                                                                                                                  - *68
+                                                                                                                                  - *65
+                                                                                                                                  - *63
+                                                                                                                                  - *64
+                                                                                                                                - *63
+                                                                                                                                - *48
+                                                                                                                              - *65
+                                                                                                                              - *66
+                                                                                                                              - *50
+                                                                                                                            - *64
+                                                                                                                            - *50
+                                                                                                                            - *49
+                                                                                                                            - *51
+                                                                                                                          - *62
+                                                                                                                          - *51
+                                                                                                                          - *33
+                                                                                                                          - *36
+                                                                                                                        - *52
+                                                                                                                        - *36
+                                                                                                                        - *34
+                                                                                                                        - *37
+                                                                                                                      - *92
+                                                                                                                      - *37
+                                                                                                                      - *62
+                                                                                                                      - *89
+                                                                                                                      - *54
+                                                                                                                      - *36
+                                                                                                                      - *39
+                                                                                                                    - *55
+                                                                                                                    - *39
+                                                                                                                    - *37
+                                                                                                                    - *40
+                                                                                                                  - *93
+                                                                                                                  - *40
+                                                                                                                  - *89
+                                                                                                                  - *90
+                                                                                                                  - *57
+                                                                                                                  - *39
+                                                                                                                  - *43
+                                                                                                                - *59
+                                                                                                                - *43
+                                                                                                                - *40
+                                                                                                                - *44
+                                                                                                              - *94
+                                                                                                              - *44
+                                                                                                              - *90
+                                                                                                              - *91
+                                                                                                              - *61
+                                                                                                              - *43
+                                                                                                              - *58
+                                                                                                            - *58
+                                                                                                            - *44
+                                                                                                          - *61
+                                                                                                          - *91
+                                                                                                          - *59
+                                                                                                        - *59
+                                                                                                        - *93
+                                                                                                        - *94
+                                                                                                      - *93
+                                                                                                      - *57
+                                                                                                      - *61
+                                                                                                      - *90
+                                                                                                      - *55
+                                                                                                      - *59
+                                                                                                    - *55
+                                                                                                    - *92
+                                                                                                    - *93
+                                                                                                  - *92
+                                                                                                  - *54
+                                                                                                  - *57
+                                                                                                  - *89
+                                                                                                  - *52
+                                                                                                  - *55
+                                                                                                - *52
+                                                                                                - *45
+                                                                                                - *92
+                                                                                              - *45
+                                                                                              - *51
+                                                                                              - *54
+                                                                                              - *62
+                                                                                              - *47
+                                                                                              - *52
+                                                                                            - *47
+                                                                                            - *31
+                                                                                            - *45
+                                                                                          - *31
+                                                                                          - *49
+                                                                                          - *51
+                                                                                          - *48
+                                                                                          - *46
+                                                                                          - *47
+                                                                                        - *46
+                                                                                        - *31
+                                                                                      - *48
+                                                                                      - *49
+                                                                                      - *33
+                                                                                    - *47
+                                                                                    - *33
+                                                                                    - *32
+                                                                                    - *34
+                                                                                  - *45
+                                                                                  - *34
+                                                                                  - *16
+                                                                                  - *19
+                                                                                - *35
+                                                                                - *19
+                                                                                - *17
+                                                                                - *20
+                                                                              - *95
+                                                                              - *20
+                                                                              - *45
+                                                                              - *92
+                                                                              - *37
+                                                                              - *19
+                                                                              - *22
+                                                                            - *38
+                                                                            - *22
+                                                                            - *20
+                                                                            - *23
+                                                                          - *96
+                                                                          - *23
+                                                                          - *92
+                                                                          - *93
+                                                                          - *40
+                                                                          - *22
+                                                                          - *26
+                                                                        - *42
+                                                                        - *26
+                                                                        - *23
+                                                                        - *27
+                                                                      - *97
+                                                                      - *27
+                                                                      - *93
+                                                                      - *94
+                                                                      - *44
+                                                                      - *26
+                                                                      - *41
+                                                                      content: :mine
+                                                                    - *41
+                                                                    - *27
+                                                                  - *44
+                                                                  - *94
+                                                                  - *42
+                                                                - *42
+                                                                - *96
+                                                                - *97
+                                                              - *96
+                                                              - *40
+                                                              - *44
+                                                              - *93
+                                                              - *38
+                                                              - *42
+                                                            - *38
+                                                            - *95
+                                                            - *96
+                                                          - *95
+                                                          - *37
+                                                          - *40
+                                                          - *92
+                                                          - *35
+                                                          - *38
+                                                        - *35
+                                                        - *28
+                                                        - *95
+                                                      - *28
+                                                      - *34
+                                                      - *37
+                                                      - *45
+                                                      - *30
+                                                      - *35
+                                                    - *30
+                                                    - *14
+                                                    - *28
+                                                  - *14
+                                                  - *32
+                                                  - *34
+                                                  - *31
+                                                  - *29
+                                                  - *30
+                                                - *29
+                                                - *14
+                                              - *31
+                                              - *32
+                                              - *16
+                                              content: :mine
+                                            - *30
+                                            - *16
+                                            - *15
+                                            - *17
+                                          - *15
+                                          - *3
+                                        - *13
+                                        - *3
+                                        - *2
+                                        - *4
+                                      - *98
+                                      - *4
+                                      - *14
+                                      - *28
+                                      - *17
+                                      - *3
+                                      - *5
+                                    - *18
+                                    - *5
+                                    - *4
+                                    - *6
+                                  - *99
+                                  - *6
+                                  - *28
+                                  - *95
+                                  - *20
+                                  - *5
+                                  - *7
+                                - *21
+                                - *7
+                                - *6
+                                - *8
+                              - *100
+                              - *8
+                              - *95
+                              - *96
+                              - *23
+                              - *7
+                              - *9
+                              content: :mine
+                            - *25
+                            - *9
+                            - *8
+                            - *10
+                          - *101
+                          - *10
+                          - *96
+                          - *97
+                          - *27
+                          - *9
+                          - *24
+                        - *24
+                        - *10
+                      - *27
+                      - *97
+                      - *25
+                    - *25
+                    - *100
+                    - *101
+                  - *100
+                  - *23
+                  - *27
+                  - *96
+                  - *21
+                  - *25
+                - *21
+                - *99
+                - *100
+              - *99
+              - *20
+              - *23
+              - *95
+              - *18
+              - *21
+            - *18
+            - *98
+            - *99
+          - *98
+          - *17
+          - *20
+          - *28
+          - *13
+          - *18
+        - *13
+        - *11
+        - *98
+      - *11
+      - *15
+      - *17
+      - *14
+      - *12
+      - *13
+    - *12
+    - *11
+  - *11
+  - *4
+  - *98
+  - *6
+  - *99
+  - *8
+  - *100
+  - *10
+  - *101
+- - *12
+  - *3
+  - *13
+  - *5
+  - *18
+  - *7
+  - *21
+  - *9
+  - *25
+  - *24
+- - *15
+  - *14
+  - *17
+  - *28
+  - *20
+  - *95
+  - *23
+  - *96
+  - *27
+  - *97
+- - *29
+  - *16
+  - *30
+  - *19
+  - *35
+  - *22
+  - *38
+  - *26
+  - *42
+  - *41
+- - *32
+  - *31
+  - *34
+  - *45
+  - *37
+  - *92
+  - *40
+  - *93
+  - *44
+  - *94
+- - *46
+  - *33
+  - *47
+  - *36
+  - *52
+  - *39
+  - *55
+  - *43
+  - *59
+  - *58
+- - *49
+  - *48
+  - *51
+  - *62
+  - *54
+  - *89
+  - *57
+  - *90
+  - *61
+  - *91
+- - *63
+  - *50
+  - *64
+  - *53
+  - *69
+  - *56
+  - *72
+  - *60
+  - *76
+  - *75
+- - *66
+  - *65
+  - *68
+  - *79
+  - *71
+  - *81
+  - *74
+  - *83
+  - *78
+  - *85
+- - *88
+  - *67
+  - *87
+  - *70
+  - *80
+  - *73
+  - *82
+  - *77
+  - *84
+  - *86
